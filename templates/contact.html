@@ -1,9 +1,122 @@
 {% extends "base.html" %}
 
-{% block title %}เกี่ยวกับเรา{% endblock title %}
+{% block title %}Contact me{% endblock title %}
 
 {% block content %}
-
-
-
+<div class="contact-bg-anim"></div>
+<div class="contact-container">
+  <h2>Contact Me</h2>
+  <div class="contact-socials">
+    <a href="https://www.facebook.com/heng.lyheang.7528" target="_blank" class="contact-icon facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://github.com/Lyheangheng" target="_blank" class="contact-icon github" title="GitHub"><i class="fab fa-github"></i></a>
+    <a href="https://www.instagram.com/ly_heang_heng_t/" target="_blank" class="contact-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.tiktok.com/@tun_616" target="_blank" class="contact-icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+  </div>
+</div>
+<style>
+  html, body {
+    height: 100%;
+    min-height: 100%;
+  }
+  body {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%) !important;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  .contact-bg-anim {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 1 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+    display: block !important;
+  }
+  .contact-bg-anim::before, .contact-bg-anim::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.25;
+    filter: blur(40px);
+    animation: float-bg 8s ease-in-out infinite alternate;
+    z-index: 2;
+    display: block;
+  }
+  .contact-bg-anim::before {
+    width: 320px; height: 320px;
+    background: #4f8cff;
+    left: 10vw; top: 15vh;
+    animation-delay: 0s;
+  }
+  .contact-bg-anim::after {
+    width: 220px; height: 220px;
+    background: #ffd700;
+    right: 12vw; bottom: 18vh;
+    animation-delay: 2s;
+  }
+  @keyframes float-bg {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-40px) scale(1.08); }
+  }
+  .contact-container {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(80, 80, 180, 0.10), 0 1.5px 8px rgba(0,0,0,0.04);
+    max-width: 420px;
+    margin: 3rem auto;
+    padding: 2.5rem 2rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  }
+  .contact-container:hover {
+    background: #4f8cff;
+    color: #fff;
+    box-shadow: 0 8px 40px rgba(80, 80, 180, 0.18), 0 3px 16px rgba(0,0,0,0.08);
+    transform: translateY(-8px) scale(1.03);
+  }
+  .contact-container:hover h2 {
+    color: #fff;
+  }
+  .contact-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #3e1168;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+  .contact-socials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  .contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%;
+    font-size: 1.7rem;
+    color: #fff;
+    background: #4f8cff;
+    box-shadow: 0 2px 12px rgba(80,80,180,0.10);
+    transition: background 0.2s, transform 0.2s;
+    text-decoration: none;
+  }
+  .contact-icon.facebook { background: #1877f3; }
+  .contact-icon.github { background: #222; }
+  .contact-icon.instagram { background: linear-gradient(135deg,#fd5949,#d6249f,#285AEB); }
+  .contact-icon.tiktok { background: #000; }
+  .contact-icon:hover {
+    transform: scale(1.13) rotate(-8deg);
+    box-shadow: 0 4px 24px rgba(80,80,180,0.18);
+    filter: brightness(1.15);
+  }
+</style>
 {% endblock content %}

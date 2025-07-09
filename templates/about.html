@@ -1,9 +1,134 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}เกี่ยวกับเรา{% endblock title %}
+{% block title %}About Page{% endblock title %}
 
 {% block content %}
-
-
-
+<style>
+  .about-video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(1);
+  }
+  .about-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.2);
+    z-index: -1;
+  }
+  .about-floating-icons {
+    position: fixed;
+    top: 10%;
+    right: 5%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    pointer-events: none;
+  }
+  .about-floating-icons i {
+    font-size: 2.2rem;
+    color: #4f8cff;
+    opacity: 0.85;
+    animation: float 3s ease-in-out infinite;
+  }
+  .about-floating-icons i:nth-child(2) {
+    color: #3e1168;
+    animation-delay: 1s;
+  }
+  .about-floating-icons i:nth-child(3) {
+    color: #ffd700;
+    animation-delay: 2s;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+  }
+  .about-box {
+    border-radius: 35px;
+    box-shadow: 0 4px 32px rgba(80, 80, 180, 0.10), 0 1.5px 8px rgba(0,0,0,0.04);
+    max-width: 480px;
+    margin: 3rem auto;
+    padding: 2.5rem 2rem 2rem 2rem;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+    {% comment %} background: rgba(255, 255, 255, 0.1); {% endcomment %}
+  }
+  .about-box h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color:rgb(187, 3, 147);
+    letter-spacing: 1px;
+  }
+  .about-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .about-list li {
+    font-size: 1.1rem;
+    margin-bottom: 1.1rem;
+    padding-left: 0.5rem;
+    display: flex;
+    align-items: center;
+    color: rgb(255, 252, 252);
+    {% comment %} background: #f7f9fb; {% endcomment %}
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(80,80,180,0.04);
+    transition: background 0.2s;
+  }
+  .about-list li span {
+    display: inline-block;
+    {% comment %} background:rgb(243, 243, 243); {% endcomment %}
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    line-height: 2rem;
+    margin-right: 1rem;
+    font-size: 1rem;
+  }
+  .about-list li:hover {
+    {% comment %} background:rgb(0, 0, 0); {% endcomment %}
+    cursor: pointer;
+  }
+</style>
+<video class="about-video-bg" autoplay muted loop>
+  <source src="{% static "videos/cloud_video.mp4" %}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+<div class="about-overlay"></div>
+<div class="about-floating-icons">
+  <i class="fas fa-book"></i>
+  <i class="fas fa-code"></i>
+  <i class="fas fa-rocket"></i>
+</div>
+<div class="about-box">
+  <h2>Step 1 setting up django project</h2>
+  <ul class="about-list">
+    <li><span>1.</span> Create a repo on githup</li>
+    <li><span>2.</span> Open your working space on terminal</li>
+    <li><span>3.</span> Git clone your repo link</li>
+    <li><span>4.</span> code . open your file on vscode</li>
+    <li><span>5.</span>python -m venv venv , venv\Scripts\activate" create venv and activate</li>
+    <li><span>6.</span> django-admin startproject yourproject_Name" start django project</li>
+    <li><span>7.</span> pip install django, pip freeze > requirements.txt" install django and add txt file</li>
+    <li><span>8.</span> git add , git commit -m "add django", git push" push your code to your repo</li>
+    <li><span>9.</span> create "static" , "templates" files </li>
+    <li><span>10.</span> In static we keep files like js or css , In templates we create html files </li>
+  </ul>
+</div>
 {% endblock content %}
